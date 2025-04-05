@@ -1,4 +1,6 @@
-import { Listing, SearchParams } from "..";
+import { Listing } from "./listing";
+import { SearchParams } from "./searchParams";
+
 
 export interface FinalReport {
     timestamp: string;

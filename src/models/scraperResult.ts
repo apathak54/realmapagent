@@ -1,4 +1,5 @@
-import { Listing } from "..";
+import { Listing } from "./listing";
+
 
 export interface ScraperResult {
     status: 'success' | 'error';

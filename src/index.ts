@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { EntityAModel } from "./models/entityA";
+import { EntityModel } from "./models/Entity";
 
 dotenv.config();
 const app = express();
@@ -20,9 +20,9 @@ mongoose
   .catch((error) => console.error("MongoDB connection error:", error));
 
 
-app.post("/api/entitya", async (req, res) => {
+app.post("/api/entity", async (req, res) => {
   try {
-    const newRecord = new EntityAModel(req.body);
+    const newRecord = new EntityModel(req.body);
     const savedRecord = await newRecord.save();
     res.status(201).json({ success: true, data: savedRecord });
   } catch (error) {
@@ -30,15 +30,7 @@ app.post("/api/entitya", async (req, res) => {
   }
 });
 
-app.post("/api/entitya", async (req, res) => {
-    try {
-      const newRecord = new EntityAModel(req.body);
-      const savedRecord = await newRecord.save();
-      res.status(201).json({ success: true, data: savedRecord });
-    } catch (error) {
-      res.status(500).json({ success: false, error });
-    }
-  });
+
 
 app.get("/api/entitya", async (req, res) => {
   try {

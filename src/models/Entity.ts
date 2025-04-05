@@ -1,15 +1,17 @@
 import { Schema, model, Document } from "mongoose";
 
-export interface IEntityA extends Document {
+export interface IEntity extends Document {
+  name : string ;
   location: string;
   totalSqftAvailable: number;
   pricePerSqft: number;
 }
 
-const entityASchema = new Schema<IEntityA>({
+const entitySchema = new Schema<IEntity>({
+  name: {type:String , required : true},
   location: { type: String, required: true },
   totalSqftAvailable: { type: Number, required: true },
   pricePerSqft: { type: Number, required: true },
 });
 
-export const EntityAModel = model<IEntityA>("EntityA", entityASchema);
+export const Entity = model<IEntity>("Entity", entitySchema);

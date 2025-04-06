@@ -5,6 +5,10 @@ export interface IEntity extends Document {
   location: string;
   totalSqftAvailable: number;
   pricePerSqft: number;
+  totalPrice : number ;
+  threeYear: number,
+  fiveYear: number,
+  sevenYear: number
 }
 
 const entitySchema = new Schema<IEntity>({
@@ -12,6 +16,11 @@ const entitySchema = new Schema<IEntity>({
   location: { type: String, required: true },
   totalSqftAvailable: { type: Number, required: true },
   pricePerSqft: { type: Number, required: true },
+  totalPrice : { type: Number , required: true },
+  threeYear: { type: Number, required: true },
+  fiveYear: { type: Number, required: true },
+  sevenYear: { type: Number, required: true }
+
 });
 
 export const Entity = model<IEntity>("Entity", entitySchema);

@@ -8,7 +8,8 @@ export interface IEntity extends Document {
   totalPrice : number ;
   threeYear: number,
   fiveYear: number,
-  sevenYear: number
+  sevenYear: number,
+  propertyType: 'normal' | 'premium' | 'luxury',
 }
 
 const entitySchema = new Schema<IEntity>({
@@ -19,8 +20,12 @@ const entitySchema = new Schema<IEntity>({
   totalPrice : { type: Number , required: true },
   threeYear: { type: Number, required: true },
   fiveYear: { type: Number, required: true },
-  sevenYear: { type: Number, required: true }
-
+  sevenYear: { type: Number, required: true },
+  propertyType: {
+    type: String,
+    enum: ['normal', 'premium', 'luxury'],
+    required: true,
+  }
 });
 
 export const Entity = model<IEntity>("Entity", entitySchema);
